@@ -1,2 +1,2 @@
 # Streamlit_Dashboard_Practice
-Streamlit을 활용하여 대시보드를 만들고 배포하는 실습을 진행함
+'Streamlit으로 프로젝트 한방에 끝내기 with 파이썬' 교재를 참고하여 진행하였습니다
