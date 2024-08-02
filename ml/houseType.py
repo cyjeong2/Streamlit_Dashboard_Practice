@@ -4,6 +4,11 @@ import streamlit as st
 import pandas as pd
 from prophet import Prophet
 
+import os
+from matplotlib import font_manager as fm
+fpath = os.path.join(os.getcwd(), "Nanum_Gothic/NanumGothic-Bold.ttf")
+prop = fm.FontProperties(fname=fpath)
+
 
 def predict_plot(total_df, types, periods):
     fig, ax = plt.subplots(figsize=(10, 6), sharex=True, ncols=2, nrows=2)
@@ -20,16 +25,16 @@ def predict_plot(total_df, types, periods):
         forecast = model.predict(future)
         if i <= 1:
             fig = model.plot(forecast, uncertainty=True, ax=ax[0, i])
-            ax[0, i].set_title(f"서울시 {types[i]} 평균가격 예측 시나리오 {periods}일간")
-            ax[0, i].set_xlabel(f"날짜")
-            ax[0, i].set_ylabel(f"평균가격(만원)")
+            ax[0, i].set_title(f"서울시 {types[i]} 평균가격 예측 시나리오 {periods}일간", fontproperties=prop)
+            ax[0, i].set_xlabel(f"날짜", fontproperties=prop)
+            ax[0, i].set_ylabel(f"평균가격(만원)", fontproperties=prop)
             for tick in ax[0, i].get_xticklabels():
                 tick.set_rotation(30)
         else:
             fig = model.plot(forecast, uncertainty=True, ax=ax[1, i-2])
-            ax[1, i-2].set_title(f"서울시 {types[i]} 평균가격 예측 시나리오 {periods}일간")
-            ax[1, i-2].set_xlabel(f"날짜")
-            ax[1, i-2].set_ylabel(f"평균가격(만원)")
+            ax[1, i-2].set_title(f"서울시 {types[i]} 평균가격 예측 시나리오 {periods}일간", fontproperties=prop)
+            ax[1, i-2].set_xlabel(f"날짜", fontproperties=prop)
+            ax[1, i-2].set_ylabel(f"평균가격(만원)", fontproperties=prop)
             for tick in ax[1, i-2].get_xticklabels():
                 tick.set_rotation(30)
     return fig
