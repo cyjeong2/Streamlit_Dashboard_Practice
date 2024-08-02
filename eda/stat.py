@@ -108,7 +108,7 @@ def corrRelation(total_df):
     sns.scatterplot(x='BLDG_AREA', y='OBJ_AMT', data=sgg_df)
     ax.text(0.95, 0.05, f'Pearson Correlation: {corr_coef["r"].values[0]:.2f}',
             transform=ax.transAxes, ha='right', fontsize=12)
-    ax.set_title(f'{selected_sgg_nm} 피어슨 상관계수')
+    ax.set_title(f'{selected_sgg_nm} 피어슨 상관계수', fontproperties=prop)
     st.pyplot(fig)
 
     st.markdown("### 거래건수 및 아파트 가격 상관관계")
